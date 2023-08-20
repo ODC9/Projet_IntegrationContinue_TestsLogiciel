@@ -5,6 +5,7 @@ import login
 import utilisateurs
 import verifier
 import grille_tarifaire
+import colis
 
 
 # Fonction de test pour l'inscription des utilisateurs
@@ -42,7 +43,7 @@ test_connexion()
 
 # Fonction de test pour les dévis
 def test_devis():
-    # Cas 1 : Test pour des valeurs correctes
+    # Cas : Test pour des valeurs correctes
     poids = 5
     distance = 7.6
     oracle = 10100
@@ -50,4 +51,21 @@ def test_devis():
 
 # Appel de la fonction
 test_devis()
+
+# Fonction de test pour les colis
+def test_colis():
+
+    colis.create_table_colis()
+
+    # Cas 1 : Test pour une insertion réussie d'un colis
+    nom_client = "donatien"
+    adresse = "Ouagadougou"
+    poids_colis = "7kg"
+    numero_destinataire = "64000000"
+    commentaire = "colis"
+    colis.enregistrement_colis(nom_client, adresse, poids_colis, numero_destinataire, commentaire) is True
+
+    # Cas 2 : Test pour une insertion échouée d'un colis
+    colis.enregistrement_colis(nom_client, adresse, poids_colis, numero_destinataire, commentaire) is None
+
 
