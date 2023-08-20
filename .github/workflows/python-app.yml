@@ -30,4 +30,4 @@ jobs:
 
     - name: Test with pytest
       run: |
-        python -m pytest testFonction.py
+        python -m pytest tests_fonctions.py
