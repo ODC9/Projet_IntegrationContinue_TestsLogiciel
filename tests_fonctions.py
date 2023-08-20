@@ -88,6 +88,13 @@ def test_check_input():
     chaine2 = "22"
     verifier.check_input(chaine2)
 
+def test_check_mdp():
+    # Cas  : Test pour la saisie d'un mot de passe correct
+    mdp1 = "donaCO1234"
+    assert verifier.check_mdp(mdp1) == True
 
+    # Cas  : Test pour la saisie d'un mot de passe incorrect
+    mdp2 = "donaCO"
+    assert verifier.check_mdp(mdp2) == False
 
 
