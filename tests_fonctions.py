@@ -4,8 +4,10 @@
 import login
 import utilisateurs
 import verifier
+import grille_tarifaire
 
-# Fonction de test pour la création de la table des utilisateurs
+
+# Fonction de test pour l'inscription des utilisateurs
 def test_inscription_utilisateurs():
 
     utilisateurs.create_table_utilisateurs() # Création de la table
@@ -25,7 +27,7 @@ def test_inscription_utilisateurs():
 # Appel de la fonction
 test_inscription_utilisateurs()
 
-# Fonction de test pour la création de la table des utilisateurs
+# Fonction de test pour la connexion des utilisateurs
 def test_connexion():
     # Cas 1 : Test pour une connexion réussie
     nom_utilisateur = "donatien"
@@ -37,3 +39,15 @@ def test_connexion():
 
 # Appel de la fonction
 test_connexion()
+
+# Fonction de test pour les dévis
+def test_devis():
+    # Cas 1 : Test pour des valeurs correctes
+    poids = 5
+    distance = 7.6
+    oracle = 10100
+    assert grille_tarifaire.devis(poids, distance) == oracle
+
+# Appel de la fonction
+test_devis()
+

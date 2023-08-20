@@ -80,8 +80,8 @@ elif choix == 2 :
             
         elif tache == 6 :
             print("Ici vous pouvez voir le prix de notre livraison en renseignant le poids et la distance à faire")
-            poids = int(input("Poids en kg : "))
-            dist = int(input("Distance à parcourir : "))
+            poids = int(input("Poids en kilogramme (kg) : "))
+            dist = int(input("Distance à parcourir en kilomètre (km) : "))
             grille_tarifaire.devis(poids, dist)
             
             
