@@ -89,12 +89,21 @@ def test_check_input():
     verifier.check_input(chaine2)
 
 def test_check_mdp():
-    # Cas  : Test pour la saisie d'un mot de passe correct
+    # Cas 1 : Test pour la saisie d'un mot de passe correct
     mdp1 = "donaCO1234"
     assert verifier.check_mdp(mdp1) == True
 
-    # Cas  : Test pour la saisie d'un mot de passe incorrect
+    # Cas 2 : Test pour la saisie d'un mot de passe incorrect
     mdp2 = "donaCO"
     assert verifier.check_mdp(mdp2) == False
+
+def test_check_email():
+    # Cas 1 : Test pour une saisie d'email correct
+    email1 = "test@gmail.com"
+    assert verifier.check_email(email1) == True
+
+    # Cas 2 : Test pour une saisie d'email incorrect
+    email2 = "test@gmail.c"
+    assert verifier.check_email(email2) == False
 
 
