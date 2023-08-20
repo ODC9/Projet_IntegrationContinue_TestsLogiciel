@@ -7,6 +7,7 @@ import verifier
 import grille_tarifaire
 import colis
 import payements
+import verifier
 
 
 # Fonction de test pour l'inscription des utilisateurs
@@ -76,5 +77,17 @@ def test_payements():
 
     # Cas 2 : Test pour un payement échoué
     payements.enregistrement_payement(nom_client, id_colis, code_transaction) is None
+
+# Fonction de test pour les vérifications de saisie
+def test_check_input():
+    # Cas 1 : Test pour les saisies de chaine correctes
+    chaine1 = "Livraison"
+    verifier.check_input(chaine1)
+
+    # Cas 2 : Test pour les saisies de chaine incorrectes
+    chaine2 = "22"
+    verifier.check_input(chaine2)
+
+
 
 
