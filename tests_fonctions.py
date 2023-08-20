@@ -114,3 +114,13 @@ def test_check_number():
     # Cas 2 : Test pour une saisie d'un numero incorrect
     numero2 = "123456789"
     assert verifier.check_number(numero2) == False
+
+def test_check_transactionCode():
+    # Cas 1 : Saisie d'un code de transaction correct
+    code1 = "G34567"
+    assert verifier.check_transactionCode(code1) == True
+
+    # Cas 2 : Saisie d'un code de transaction incorrect
+    code2 = "G3456"
+    assert verifier.check_transactionCode(code2) == False
+

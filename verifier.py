@@ -38,4 +38,12 @@ def check_number(entree):
     else:
         return False
 
+def check_transactionCode(code):
+    # Une seul lettre en majuscule suivie de 5 chiffres
+    regex = r"^[A-Z]\d{5}$"
+
+    if re.match(regex, code):
+        return True
+    else:
+        return False
 
