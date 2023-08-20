@@ -98,12 +98,19 @@ def test_check_mdp():
     assert verifier.check_mdp(mdp2) == False
 
 def test_check_email():
-    # Cas 1 : Test pour une saisie d'email correct
+    # Cas 1 : Test pour une saisie d'un email correct
     email1 = "test@gmail.com"
     assert verifier.check_email(email1) == True
 
-    # Cas 2 : Test pour une saisie d'email incorrect
+    # Cas 2 : Test pour une saisie d'un email incorrect
     email2 = "test@gmail.c"
     assert verifier.check_email(email2) == False
 
+def test_check_number():
+    # Cas 1 : Test pour une saisie d'un numero correct
+    numero1 = "12345678"
+    assert verifier.check_number(numero1) == True
 
+    # Cas 2 : Test pour une saisie d'un numero incorrect
+    numero2 = "123456789"
+    assert verifier.check_number(numero2) == False
