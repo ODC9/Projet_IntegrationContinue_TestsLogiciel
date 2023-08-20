@@ -6,6 +6,7 @@ import utilisateurs
 import verifier
 import grille_tarifaire
 import colis
+import payements
 
 
 # Fonction de test pour l'inscription des utilisateurs
@@ -24,9 +25,7 @@ def test_inscription_utilisateurs():
     # Cas 1 : test de l'inscription d'un utilisateur existant
     # Verifier si l'insertion dans la BD a échoué
     utilisateurs.enregistrement_utilisateurs(nom_utilisateur, email, password, numero) is None
-    
-# Appel de la fonction
-test_inscription_utilisateurs()
+
 
 # Fonction de test pour la connexion des utilisateurs
 def test_connexion():
@@ -38,8 +37,6 @@ def test_connexion():
     # Cas 2 : Test pour une connexion échouée
     login.login(nom_utilisateur, password) is None
 
-# Appel de la fonction
-test_connexion()
 
 # Fonction de test pour les dévis
 def test_devis():
@@ -49,8 +46,6 @@ def test_devis():
     oracle = 10100
     assert grille_tarifaire.devis(poids, distance) == oracle
 
-# Appel de la fonction
-test_devis()
 
 # Fonction de test pour les colis
 def test_colis():
@@ -67,5 +62,19 @@ def test_colis():
 
     # Cas 2 : Test pour une insertion échouée d'un colis
     colis.enregistrement_colis(nom_client, adresse, poids_colis, numero_destinataire, commentaire) is None
+
+# Fonction de test pour les payements
+def test_payements():
+
+    payements.create_table_payements()
+
+    # Cas 1 : Test pour un payement réussi
+    nom_client = "donatien"
+    id_colis = "3"
+    code_transaction = "F23452"
+    payements.enregistrement_payement(nom_client, id_colis, code_transaction) is True
+
+    # Cas 2 : Test pour un payement échoué
+    payements.enregistrement_payement(nom_client, id_colis, code_transaction) is None
 
 
